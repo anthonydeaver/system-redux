@@ -24,6 +24,8 @@ DISABLE_AUTO_TITLE="true"
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
+export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$PATH
+
 plugins=(
   osx
   zsh-syntax-highlighting
