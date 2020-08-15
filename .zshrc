@@ -3,6 +3,11 @@ export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 
+# Base16 Shell, for coloring asthetic
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
 # fix colors in tmux
 export TERM="xterm-256color"
 # if [ "$TMUX" = "" ]; then tmux -2; fi
