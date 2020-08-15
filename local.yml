@@ -37,3 +37,8 @@
     include: ./ansible/mackup.yml
     tags:
       - mackup
+
+  - name: Install VSCode extensions
+    include: ./ansible/vscode.yml
+    tags:
+      - vscode

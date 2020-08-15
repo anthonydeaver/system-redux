@@ -1,0 +1,3 @@
+- name: Instlal Visual Studio Code extensions
+  command: bash -lc "code --install-extension {{ item }}"
+  with_lines: cat "./config/vs.ext.cfg"
