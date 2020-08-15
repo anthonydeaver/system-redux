@@ -27,7 +27,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   osx
   zsh-syntax-highlighting
-  zsh-autosuggestions
+  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -51,18 +51,7 @@ export WORKON_HOME=~/.virtualenvs
 mkdir -p $WORKON_HOME
 . ~/.pyenv/versions/3.8.5/bin/virtualenvwrapper.sh
 # Support for bash
-PROMPT_COMMAND='prompt'
 
-# Mirrored support for zsh. See: https://superuser.com/questions/735660/whats-the-zsh-equivalent-of-bashs-prompt-command/735969#735969 
-precmd() { eval "$PROMPT_COMMAND" }
-
-function prompt()
-{
-    if [ "$PWD" != "$MYOLDPWD" ]; then
-        MYOLDPWD="$PWD"
-        test -e .venv && workon `cat .venv`
-    fi
-}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
