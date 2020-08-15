@@ -32,6 +32,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+autoload -U promptinit; promptinit
 # set pureshell prompt
 prompt pure
 
