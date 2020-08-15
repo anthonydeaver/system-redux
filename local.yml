@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  become: true
+  become_user: "{{ username }}"
+  tasks:
+  - name: Install Dotfiles
+    include: ./ansible/dotfiles.yml
+    tags:
+      - dotfiles
+
+  - name: Install apps
+    include: ./ansible/apps.yml
+    tags:
+      - apps
+
+  - name: Setup Shell
+    include: ./ansible/shell.yml
+    tags:
+      - shell
+
+  - name: Setup Asthetics
+    include: ./ansible/asthetics.yml
+    tags:
+      - asthetics
+
+  - name: Install Utilities
+    include: ./ansible/utilities.yml
+    tags:
+      - utilities
+
+  - name: Install tools
+    include: ./ansible/tools.yml
+    tags:
+      - tools
+
+  - name: Mackup Restore
+    include: ./ansible/mackup.yml
+    tags:
+      - mackup

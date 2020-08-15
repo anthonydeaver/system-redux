@@ -1,0 +1,17 @@
+# Dev Tools
+  - name: (Tools) Install tools via brew
+    homebrew:
+      name: [
+        'gettext', 
+        'git', 
+        'helm', 
+        'kubernetes-cli', 
+        'jq', 
+        'yarn', 
+        'terraform', 
+        'telnet', 
+        'awscli', 
+        'minikube', 
+        'pyenv'
+      ]
+      state: present

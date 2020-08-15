@@ -1,0 +1,15 @@
+  - name: Install UI Apps
+    homebrew_cask:
+      pkg: "{{ item }}"
+      state: present
+      accept_external_apps: yes
+    with_items:
+      - firefox
+      - iterm2
+      - franz
+      - google-chrome
+      - visual-studio-code
+      - spotify
+      - sublime-text
+    tags:
+      - apps

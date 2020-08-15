@@ -1,0 +1,27 @@
+  - name: (Dotfiles) Clone dotfiles
+    git:
+      dest: ~/.dotfiles
+      repo: git@github.com:anthonydeaver/system-redux.git
+      update: yes
+  - name: (Dotfiles) link dotfiles
+    file:
+      src: "~/.dotfiles/{{ item }}"
+      dest: "~/{{ item }}"
+      state: link
+      force: yes
+    with_items:
+      - .vimrc
+      - .zshrc
+      - .tmux.conf
+      - .mackup.cfg
+  - name: (Dotfiles) create dir .mackup
+    file:
+      path: ~/.mackup
+      state: directory
+      recurse: no
+  # - name: (Dotfiles) link .mackup/custom.cfg
+  #   file:
+  #     src: ~/.dotfiles/.mackup/custom.cfg
+  #     dest: ~/.mackup/custom.cfg
+  #     state: link
+  #     force: yes

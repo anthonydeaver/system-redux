@@ -1,0 +1,8 @@
+- name: (Mackup) Install
+  homebrew:
+    pkg: mackup
+    state: present
+- name: (Mackup) Restore
+  shell: "mackup -f restore"
+  register: mackup
+  changed_when: mackup.stdout != ""
