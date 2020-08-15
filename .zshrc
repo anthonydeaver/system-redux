@@ -32,6 +32,11 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# set pureshell prompt
+prompt pure
+
+alias devup="(cd ~/.dotfiles && git pull) && sudo ansible-playbook ~/.dotfiles/local.yml --extra-vars username=$(whoami)"
+
 # Load any unsynchronized local zshrc configurations and settings
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
