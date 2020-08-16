@@ -24,4 +24,27 @@ function task_indicator {
 }
 task="\$(task_indicator)"
 addprompt=$task
-PROMPT="$addprompt $PROMPT"
+PS1="$addprompt $PROMPT"
+
+# Aliases
+_start() {
+    id=$1
+    shift
+    task start $id 
+}
+
+_stop() {
+    id=$1
+    shift
+    task stop $id 
+}
+_done() {
+    id=$1
+    shift
+    task done $id 
+}
+alias start=_start
+alias st=_start
+alias stop=_stop
+alias fin=_done
+alias finish=_done
