@@ -16,7 +16,10 @@
 
   - name: (Utilities) Install utilities from brew
     homebrew:
-      name: ['tree', 'timewarrior']
+      name: [
+        'tree', 
+        'timewarrior'
+      ]
       state: present
 
   - name: (Utilities) Install vundle

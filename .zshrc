@@ -15,7 +15,7 @@ export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="philips"
 
 # Case sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
@@ -43,7 +43,7 @@ autoload -U promptinit; promptinit
 # set pureshell prompt
 prompt pure
 
-alias devup="(cd ~/.dotfiles && git pull) && sudo ansible-playbook ~/.dotfiles/local.yml --extra-vars username=$(whoami)"
+alias devup="(cd ~/.dotfiles && git pull) && ansible-playbook ~/.dotfiles/local.yml --extra-vars username=$(whoami)"
 
 # Load any unsynchronized local zshrc configurations and settings
 if [ -f ~/.zshrc.local ]; then

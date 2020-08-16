@@ -14,14 +14,31 @@
       - .zshrc
       - .tmux.conf
       - .mackup.cfg
+      - .zshrc-taskwarrior
+      - .taskrc
+  - name: (Dotfiles) create dir .vim
+    file:
+      path: ~/.vim
+      state: directory
+      recurse: no
+  - name: (Dotfiles) create vim swap dir
+    file:
+      path: ~/.vim/swaps
+      state: directory
+      recurse: no
+  - name: (Dotfiles) create vim backup dir
+    file:
+      path: ~/.vim/backups
+      state: directory
+      recurse: no
   - name: (Dotfiles) create dir .mackup
     file:
       path: ~/.mackup
       state: directory
       recurse: no
-  # - name: (Dotfiles) link .mackup/custom.cfg
-  #   file:
-  #     src: ~/.dotfiles/.mackup/custom.cfg
-  #     dest: ~/.mackup/custom.cfg
-  #     state: link
-  #     force: yes
+  - name: (Dotfiles) link .mackup/custom.cfg
+    file:
+      src: ~/.dotfiles/.mackup/custom.cfg
+      dest: ~/.mackup/custom.cfg
+      state: link
+      force: yes
