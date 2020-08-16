@@ -36,9 +36,11 @@
       path: ~/.mackup
       state: directory
       recurse: no
-  - name: (Dotfiles) link .mackup/custom.cfg
+  - name: (Dotfiles) link mackup custom configs
     file:
-      src: ~/.dotfiles/.mackup/custom.cfg
-      dest: ~/.mackup/custom.cfg
+      src: "~/.dotfiles/.mackup/{{ item }}.cfg"
+      dest: "~/.mackup/{{ item }}.cfg"
       state: link
       force: yes
+    with_items:
+      - my-files
