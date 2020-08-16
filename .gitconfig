@@ -1,0 +1,56 @@
+[user]
+	name = Anthony Deaver
+	email = lordbishop@gmail.com
+
+[github]
+    user = anthonydeaver
+    token = 26d9ac92e9a52bb61ca02814673593e0x83232h80907789301839
+[color]
+  ui = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[color]
+  ui = true
+
+[color "diff"]
+  whitespace = red reverse
+
+[core]
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[branch]
+  autosetupmerge = true
+
+[core]
+  excludesfile = ~/.gitignore
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    pom = push origin master
+    pod = push origin dev
+    p = pull
+    po = pull origin
+    cia = commit --amend
+    cim = commit -m
+    sync = pull origin 
+[credential]
+	helper = osxkeychain
