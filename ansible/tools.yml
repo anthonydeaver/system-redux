@@ -12,6 +12,7 @@
         'telnet', 
         'awscli', 
         'minikube', 
-        'pyenv'
+        'pyenv',
+        'jupyter'
       ]
       state: present
