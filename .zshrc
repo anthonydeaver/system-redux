@@ -35,6 +35,8 @@ plugins=(
   osx
   zsh-syntax-highlighting
   virtualenvwrapper
+  git
+  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
