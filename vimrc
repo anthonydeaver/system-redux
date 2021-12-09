@@ -34,9 +34,8 @@ set backspace=indent,eol,start
 set cursorline " Highlight current line
 set wildmenu " Hitting TAB in command mode will show possible completions above command line.
 set lazyredraw " redraw only when necessary
-set autoread " automatically read changed file
+
 set showcmd " show command in bottom bar
-set gdefault " set the g flag to search/replace by default
 syntax enable " enable syntax processing
 colorscheme molokai " colorscheme (duh)
 
