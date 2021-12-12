@@ -46,7 +46,7 @@ set list
 set listchars=tab:➤\ ,trail:·
 set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
-colorscheme molokai " colorscheme (duh)
+"colorscheme molokai " colorscheme (duh)
 
 " Change mapleader
 let mapleader=","
@@ -152,4 +152,5 @@ if has("autocmd")
     autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
   augroup END
 endif
+
 source ~/.config/vim/plugins/coc.vim

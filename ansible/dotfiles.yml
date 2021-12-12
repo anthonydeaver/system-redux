@@ -6,16 +6,14 @@
   - name: (Dotfiles) link dotfiles
     file:
       src: "~/.dotfiles/{{ item }}"
-      dest: "~/{{ item }}"
+      dest: "~/.{{ item }}"
       state: link
       force: yes
     with_items:
-      - .vimrc
-      - .zshrc
-      - .tmux.conf
-      - .mackup.cfg
-      - .zshrc-taskwarrior
-      - .taskrc
+      - vimrc
+      - zshrc
+      - tmux.conf
+      - muttrc
   - name: (Dotfiles) create dir .vim
     file:
       path: ~/.vim
@@ -31,16 +29,18 @@
       path: ~/.vim/backups
       state: directory
       recurse: no
-  - name: (Dotfiles) create dir .mackup
+  - name: (Dotfiles) create dir .config
     file:
-      path: ~/.mackup
+      path: ~/.config
       state: directory
       recurse: no
-  - name: (Dotfiles) link mackup custom configs
+  - name: (Dotfiles) create dir .tmp
     file:
-      src: "~/.dotfiles/.mackup/{{ item }}.cfg"
-      dest: "~/.mackup/{{ item }}.cfg"
-      state: link
-      force: yes
-    with_items:
-      - my-files
+      path: ~/.tmp
+      state: directory
+      recurse: no
+  - name: (Dotfiles) create dir .fonts
+    file:
+      path: ~/.fonts
+      state: directory
+      recurse: no
