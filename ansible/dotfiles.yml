@@ -13,6 +13,7 @@
       - vimrc
       - zshrc
       - tmux.conf
+      - muttrc
   - name: (Dotfiles) create dir .vim
     file:
       path: ~/.vim
@@ -31,5 +32,15 @@
   - name: (Dotfiles) create dir .config
     file:
       path: ~/.config
+      state: directory
+      recurse: no
+  - name: (Dotfiles) create dir .tmp
+    file:
+      path: ~/.tmp
+      state: directory
+      recurse: no
+  - name: (Dotfiles) create dir .fonts
+    file:
+      path: ~/.fonts
       state: directory
       recurse: no
