@@ -38,6 +38,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 #antigen theme anthonydeaver/system-redux/theme/anthony.zsh-theme
 antigen theme https://gist.github.com/anthonydeaver/ff3a3992f89efbcd4e72a113442428c6
 antigen apply
+alias vim="nvim"
 # ==================================
 # Config
 # ==================================
@@ -125,6 +126,7 @@ export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$HOME/scripts:$HOME
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # source "${HOME}"/.ktx

@@ -11,7 +11,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
@@ -19,15 +18,20 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'voldikss/vim-floaterm'
 Plugin 'kien/ctrlp.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'neoclide/coc.nvim', {'branch': 'master'}
-Plugin 'tibabit/vim-templates'
-Plugin 'antoinemadec/coc-fzf'
 Plugin 'scrooloose/nerdtree'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'nvim-telescope/telescope.nvim'
+Plugin 'nvim-lua/popup.nvim'
+Plugin 'nvim-telescope/telescope-fzy-native.nvim'
 Plugin 'tpope/vim-sensible'
-Plugin 'sjl/gundo'
+Plugin 'vim-airline/vim-airline'
+"Plugin 'sjl/gundo'
 Plugin 'jceb/vim-orgmode'
+"Plugin 'vim-test/vim-test'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+source ~/.config/vim/plugins/vim-test.vim
+source ~/.config/vim/plugins/coc.vim
+source ~/.config/vim/plugins/fugitive.vim
 
 call vundle#end()   " required
 filetype indent on " load filetype-specif indent files
