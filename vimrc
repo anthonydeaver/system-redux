@@ -11,15 +11,23 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-speeddating'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'voldikss/vim-floaterm'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chriskempson/base16-vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'master'}
+Plugin 'tibabit/vim-templates'
+Plugin 'antoinemadec/coc-fzf'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-sensible'
 Plugin 'sjl/gundo'
-" markdown editing
-Plugin 'iamcco/mathjax-support-for-mkdp'
-Plugin 'davepagurek/markdown-preview.vim'
-Plugin 'drmingdrmer/vim-syntax-markdown'
+Plugin 'jceb/vim-orgmode'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 call vundle#end()   " required
 filetype indent on " load filetype-specif indent files
@@ -34,13 +42,15 @@ set backspace=indent,eol,start
 set cursorline " Highlight current line
 set wildmenu " Hitting TAB in command mode will show possible completions above command line.
 set lazyredraw " redraw only when necessary
-
+set list
+set listchars=tab:➤\ ,trail:·
 set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
 colorscheme molokai " colorscheme (duh)
 
 " Change mapleader
 let mapleader=","
+let maplocalleader=","
 
 " " Local dirs
 " set backupdir=~/.vim/backups
@@ -100,25 +110,46 @@ set foldmethod=indent " fold based on indent level
 """""""""""""""""""""""""""""""""""""""""
 """" => Key bindings
 """""""""""""""""""""""""""""""""""""""""
+map gf :edit <cfile><cr>
 inoremap jj <esc>
 
+imap ;; <Esc>A;<Esc>
+imap ,, <Esc>A,<Esc>
 " nnoremap <leader>w
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
+nnoremap J 5j
+nnoremap K 5k
+
+" remap pane switching
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " highlight last inserted text
 nnoremap gV `[v`]
 nnoremap <leader><space> :nohlsearch<CR> " turn off search hilight
 
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>ev :e! $MYVIMRC<CR>
+nnoremap <leader>ez :e! ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>svz:source ~/.zshrc<CR>
 
-
+:nnoremap <F5> "=strftime("%c")<CR>P
+:inoremap <F5> <C-R>=strftime("%c")<CR>
 " toggle gundo
 nnoremap <leader>u :GundoToggle<CR>
 " " Fix page up and down
 " map <PageUp> <C-U>
 " map <PageDown> <C-D>
+set shell=/bin/bash
+
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
+  augroup END
+endif
+source ~/.config/vim/plugins/coc.vim

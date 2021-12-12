@@ -1,0 +1,126 @@
+# ==============================================
+# Paths
+# ==============================================
+
+set folder           = ~/.mail
+set mailcap_path     = ~/.config/mutt/mailcap
+set header_cache     = ~/.cache/mutt/headers
+set message_cachedir = ~/.cache/mutt/messages
+set tmpdir           = ~/.tmp/mutt
+set alias_file       = ~/.mutt/aliases
+set signature        = ~/.mutt/signature
+
+
+# ==============================================
+# Gmail Settings
+# ==============================================
+
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+# set imap_check_subscribed
+set sort = "threads"
+set copy = no
+
+set from = "lordbishop@gmail.com"
+set realname = "Anthony Deaver"
+
+# Imap settings
+set imap_user = "lordbishop@gmail.com"
+set imap_pass = "ylmgrgbwqcqocddp"
+
+# Smtp settings
+set smtp_url = "smtps://lordbishop@smtp.gmail.com"
+set smtp_pass = "ylmgrgbwqcqocddp"
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+
+# ==============================================
+# Gmail Keybindings
+# ==============================================
+bind  index,pager c  mail        #Compose
+bind editor <space> noop
+bind  index,pager a  group-reply #Reply all
+macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro index,pager I  <set-flag>O "Mark as read"
+macro index,pager U  <clear-flag>O    "Mark as unread"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# ==============================================
+# General Settings
+# ==============================================
+set sleep_time   = 0  # Don't pause when doing certain actions
+set wait_key     = no # Stop asking us to continue after external commands have completed successfully
+set check_new         # Check maildir for new mail
+set timeout      = 30 # Reduce the time between checking for new mail while idle.
+set mail_check   = 0  # We don't need any minium time between checking for new mail waith our Maildir
+set mail_check_stats
+set beep_new          # Bell on new mail
+set delete
+set send_charset = "utf-8" # UTF-8 all the way
+set date_format  = "%Y-%m-%d %H:%M" # ISO dates!
+set quit        # Ask before quitting, default to yes
+unset move
+
+# ==============================================
+# INdex Key Bindings
+# ==============================================
+bind index k       previous-entry
+bind index j       next-entry
+
+bind index g       noop
+bind index gg      first-entry
+bind index G       last-entry
+
+bind index R       group-reply
+
+bind index <tab>   sync-mailbox
+bind index <space> collapse-thread
+
+bind index N       search-opposite
+
+# ==============================================
+# Compose View Options
+# ==============================================
+set envelope_from                                 # which from?
+set sig_dashes                                    # dashed before sig
+set edit_headers                                  # show headers when composing
+set fast_reply                                    # skip to compose when replying
+set editor = "vim +:silent+?^$"                   # use terminal Vim to compose email
+set forward_format = "Fwd: %s"                    # format of subject when forwarding
+set forward_decode                                # decode when forwarding
+set attribution = "On %d, %n wrote:"              # format of quoting header
+set reply_to                                      # reply to Reply to: field
+set reverse_name                                  # reply as whoever it was to
+set include                                       # include message in reply
+set forward_quote                                 # include message in forwards
+
+# ==============================================
+# Sidebar View Options
+# ==============================================
+
+set sidebar_visible = no
+set sidebar_delim_chars = ' | '
+# set sidebar_format  = '%B%* %N/%S'
+set sidebar_width   = 25
+color sidebar_new yellow default
+mailboxes +INBOX \
+          +Gmail/Becky
+# set sidebar_sort_method = 'unsorted'
+
+# ==============================================
+# Sidebar Nav
+# ==============================================
+bind index,pager <down>    sidebar-next
+bind index,pager <up>      sidebar-prev
+bind index,pager <right>   sidebar-open
+
+
+source ~/.config/mutt/dracula.muttrc
