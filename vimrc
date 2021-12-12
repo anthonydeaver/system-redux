@@ -11,7 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
-Plugin 'tpope/vim-surround'
+source ~/.config/vim/plugins/fugitive.vim
+source ~/.config/vim/plugins/vim-surround.vim
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-speeddating'
@@ -31,7 +32,6 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
-source ~/.config/vim/plugins/fugitive.vim
 
 call vundle#end()   " required
 filetype indent on " load filetype-specif indent files
