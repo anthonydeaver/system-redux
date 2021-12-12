@@ -28,11 +28,11 @@ set realname = "Anthony Deaver"
 
 # Imap settings
 set imap_user = "lordbishop@gmail.com"
-set imap_pass = "ylmgrgbwqcqocddp"
+set imap_pass = "<app code>"
 
 # Smtp settings
 set smtp_url = "smtps://lordbishop@smtp.gmail.com"
-set smtp_pass = "ylmgrgbwqcqocddp"
+set smtp_pass = "<app code>"
 
 # Remote gmail folders
 set folder = "imaps://imap.gmail.com/"
