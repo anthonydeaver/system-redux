@@ -13,23 +13,22 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 source ~/.config/vim/plugins/fugitive.vim
 source ~/.config/vim/plugins/vim-surround.vim
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-speeddating'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'voldikss/vim-floaterm'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nvim-lua/plenary.nvim'
-Plugin 'nvim-telescope/telescope.nvim'
-Plugin 'nvim-lua/popup.nvim'
-Plugin 'nvim-telescope/telescope-fzy-native.nvim'
-Plugin 'tpope/vim-sensible'
-Plugin 'vim-airline/vim-airline'
-"Plugin 'sjl/gundo'
-Plugin 'jceb/vim-orgmode'
-"Plugin 'vim-test/vim-test'
-Plugin 'dracula/vim', { 'name': 'dracula' }
+"Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-markdown'
+"Plugin 'tpope/vim-speeddating'
+"Plugin 'editorconfig/editorconfig-vim'
+"Plugin 'voldikss/vim-floaterm'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'nvim-lua/plenary.nvim'
+"Plugin 'nvim-telescope/telescope.nvim'
+"Plugin 'nvim-lua/popup.nvim'
+"Plugin 'nvim-telescope/telescope-fzy-native.nvim'
+"Plugin 'tpope/vim-sensible'
+"Plugin 'vim-airline/vim-airline'
+""Plugin 'sjl/gundo'
+"Plugin 'jceb/vim-orgmode'
+"Plugin 'dracula/vim', { 'name': 'dracula' }
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
 
@@ -120,6 +119,7 @@ inoremap jj <esc>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 " nnoremap <leader>w
+nnoremap <C-\> <Esc>0i"<Esc>
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
