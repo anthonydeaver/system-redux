@@ -13,11 +13,14 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugins
 source ~/.config/vim/plugins/fugitive.vim
 source ~/.config/vim/plugins/vim-surround.vim
+source ~/.config/vim/plugins/floaterm.vim
+source ~/.config/vim/plugins/vim-test.vim
+source ~/.config/vim/plugins/coc.vim
+
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
 "Plugin 'editorconfig/editorconfig-vim'
-"Plugin 'voldikss/vim-floaterm'
 "Plugin 'kien/ctrlp.vim'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'nvim-lua/plenary.nvim'
@@ -25,12 +28,10 @@ source ~/.config/vim/plugins/vim-surround.vim
 "Plugin 'nvim-lua/popup.nvim'
 "Plugin 'nvim-telescope/telescope-fzy-native.nvim'
 "Plugin 'tpope/vim-sensible'
-"Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline'
 ""Plugin 'sjl/gundo'
 "Plugin 'jceb/vim-orgmode'
-"Plugin 'dracula/vim', { 'name': 'dracula' }
-source ~/.config/vim/plugins/vim-test.vim
-source ~/.config/vim/plugins/coc.vim
+Plugin 'dracula/vim', { 'name': 'dracula' }
 
 call vundle#end()   " required
 filetype indent on " load filetype-specif indent files
@@ -38,7 +39,21 @@ filetype indent on " load filetype-specif indent files
 """""""""""""""""""""""""""""""""""""""""
 """" Basic settings
 """""""""""""""""""""""""""""""""""""""""
+" FOrce myself not to use the Arrow keys!
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+"unmap Y
+nnoremap <leader>p "+p
+vnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+colorscheme dracula
 set number " show line numbers
+set relativenumber " show line numbers
 set showmatch " highlight matching [{()}]
 set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start
@@ -49,7 +64,6 @@ set list
 set listchars=tab:➤\ ,trail:·
 set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
-"colorscheme molokai " colorscheme (duh)
 
 " Change mapleader
 let mapleader=","
@@ -67,15 +81,6 @@ set laststatus=2 " Always show status line
 set magic " Enable extended regexes.
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
 set shiftwidth=2 " The # of spaces for indenting.
-" set esckeys " Allow cursor keys in insert mode.
-" set diffopt=filler " Add vertical spaces to keep right and left aligned
-" set encoding=utf-8 nobomb " BOM often causes trouble
-" set nocompatible " Make vim more useful
-" set noerrorbells " Disable error bells.
-" set nostartofline
-" set shortmess=I " Don't show the intro message when starting vim.
-" set showmode " Show the current mode.
-" set showtabline=2 " Always show tab bar.
 
 """""""""""""""""""""""""""""""""""""""""
 """" Search settings
@@ -118,8 +123,10 @@ inoremap jj <esc>
 
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
+
 " nnoremap <leader>w
 nnoremap <C-\> <Esc>0i"<Esc>
+
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -127,6 +134,10 @@ nnoremap J 5j
 nnoremap K 5k
 
 " remap pane switching
+map <silent> <S-Left> <C-w><
+map <silent> <S-Down> <C-W>-
+map <silent> <S-Up> <C-W>+
+map <silent> <S-Right> <C-w>>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -137,11 +148,12 @@ nnoremap gV `[v`]
 nnoremap <leader><space> :nohlsearch<CR> " turn off search hilight
 
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :e! $MYVIMRC<CR>
+nnoremap <leader>ev :e! ~/.vimrc<CR>
 nnoremap <leader>ez :e! ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>svz:source ~/.zshrc<CR>
-
+nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <leader>sz :source ~/.zshrc<CR>
+nmap <leader>en :edit ~/.config/nvim/init.vim<cr>
+nmap <leader>sn :source ~/.config/nvim/init.vim<cr>
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
 " toggle gundo
@@ -151,10 +163,13 @@ nnoremap <leader>u :GundoToggle<CR>
 " map <PageDown> <C-D>
 set shell=/bin/bash
 
+"""""""""""""""""""""""""""""""""""""""""
+" Templates
+"""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
   augroup templates
     autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
   augroup END
 endif
 
-source ~/.config/vim/plugins/coc.vim
+"source ~/.config/vim/plugins/coc.vim

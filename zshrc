@@ -21,7 +21,7 @@ antigen bundle iterm2
 antigen bundle jira
 antigen bundle pip
 antigen bundle python
-antigen bundle pyenv
+#antigen bundle pyenv
 antigen bundle pylint
 antigen bundle virtualenvwrapper
 antigen bundle terraform
@@ -107,22 +107,22 @@ alias vsh='vim ~/.zshrc'
 #   source ~/.zshrc.local
 # fi
 
-if command -v pyenv 1>/dev/null 2>&1; then
+#if command -v pyenv 1>/dev/null 2>&1; then
+##  eval "$(pyenv init -)"
+#  export PYENV_ROOT="$HOME/.pyenv"
+#  export PATH="$PYENV_ROOT/bin:$PATH"
 #  eval "$(pyenv init -)"
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-
-fi
-
-if [ -e "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh" ]; then
-  export WORKON_HOME=~/.virtualenvs
-  mkdir -p $WORKON_HOME
-  . ~/.pyenv/versions/3.8.5/bin/virtualenvwrapper.sh
-fi
-
-
-export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$HOME/scripts:$HOME/.local/bin:$PATH
+#
+#fi
+#
+#if [ -e "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh" ]; then
+#  export WORKON_HOME=~/.virtualenvs
+#  mkdir -p $WORKON_HOME
+#  . ~/.pyenv/versions/3.8.5/bin/virtualenvwrapper.sh
+#fi
+#
+#
+#export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$HOME/scripts:$HOME/.local/bin:$PATH
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
