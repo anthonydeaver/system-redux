@@ -73,6 +73,7 @@ let maplocalleader=","
 " set backupdir=~/.vim/backups
 " set directory=~/.vim/swaps
 
+map <leader>pv :Ex<CR>
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set hidden " When a buffer is brought to foreground, remember undo history and marks.
