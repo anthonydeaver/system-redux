@@ -34,9 +34,10 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme
-#antigen theme agnoster
+antigen theme agnoster
 #antigen theme anthonydeaver/system-redux/theme/anthony.zsh-theme
-antigen theme https://gist.github.com/anthonydeaver/ff3a3992f89efbcd4e72a113442428c6
+#antigen theme https://gist.github.com/anthonydeaver/ff3a3992f89efbcd4e72a113442428c6
+#antigen theme https://gist.github.com/anthonydeaver/f5359b4a03d45fd2bbde1ec47e9f3624
 antigen apply
 alias vim="nvim"
 # ==================================

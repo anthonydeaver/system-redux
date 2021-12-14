@@ -1,5 +1,5 @@
-"Plugin 'neoclide/coc.nvim', {'branch': 'master'}
-"Plugin 'antoinemadec/coc-fzf'
+Plugin 'neoclide/coc.nvim', {'branch': 'master'}
+Plugin 'antoinemadec/coc-fzf'
 
 let g:coc_global_extensions = [
   \ 'coc-json',

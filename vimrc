@@ -16,7 +16,7 @@ source ~/.config/vim/plugins/vim-surround.vim
 source ~/.config/vim/plugins/floaterm.vim
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
-
+source ~/.config/vim/plugins/dracula.vim
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
@@ -31,21 +31,21 @@ source ~/.config/vim/plugins/coc.vim
 Plugin 'vim-airline/vim-airline'
 ""Plugin 'sjl/gundo'
 "Plugin 'jceb/vim-orgmode'
-Plugin 'dracula/vim', { 'name': 'dracula' }
-
+"Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()   " required
-filetype indent on " load filetype-specif indent files
+filetype plugin indent on " load filetype-specif indent files
 
 """""""""""""""""""""""""""""""""""""""""
 """" Basic settings
 """""""""""""""""""""""""""""""""""""""""
+set noswapfile
 " FOrce myself not to use the Arrow keys!
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-"unmap Y
+nnoremap Y y$
 nnoremap <leader>p "+p
 vnoremap <leader>P "+P
 vnoremap <leader>p "+p
@@ -55,7 +55,6 @@ colorscheme dracula
 set number " show line numbers
 set relativenumber " show line numbers
 set showmatch " highlight matching [{()}]
-set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start
 set cursorline " Highlight current line
 set wildmenu " Hitting TAB in command mode will show possible completions above command line.
@@ -74,14 +73,12 @@ let maplocalleader=","
 " set directory=~/.vim/swaps
 
 map <leader>pv :Ex<CR>
-set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set hidden " When a buffer is brought to foreground, remember undo history and marks.
 set history=1000 " Increase history from 20 default to 1000
 set laststatus=2 " Always show status line
 set magic " Enable extended regexes.
 set scrolloff=3 " Start scrolling three lines before horizontal border of window.
-set shiftwidth=2 " The # of spaces for indenting.
 
 """""""""""""""""""""""""""""""""""""""""
 """" Search settings
@@ -90,13 +87,16 @@ set incsearch " search as characters are typed
 set hlsearch " hilight matches
 
 """""""""""""""""""""""""""""""""""""""""
-"""" Tab settings
+"""" Format settings
 """""""""""""""""""""""""""""""""""""""""
 " 2 spaces = <TAB>
-set tabstop=2
-set softtabstop=2 " Tab key results in 2 spaces
-set expandtab
-
+"set autoindent " Copy indent from last line when starting new line.
+"set shiftwidth=2 " The # of spaces for indenting.
+"set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
+"set tabstop=2
+"set softtabstop=2 " Tab key results in 2 spaces
+"set expandtab
+"setlocal colorcolumn=80
 " set title " Show the filename in the window titlebar.
 " set ttyfast " Send more characters at a given time.
 " set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
