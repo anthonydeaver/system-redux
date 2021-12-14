@@ -65,8 +65,8 @@ set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
 
 " Change mapleader
-let mapleader=","
-let maplocalleader=","
+let mapleader=" "
+let maplocalleader=" "
 
 " " Local dirs
 " set backupdir=~/.vim/backups
@@ -113,7 +113,7 @@ set foldlevelstart=10 " anything with less than 10 levels of nesting will be ope
 set foldnestmax=10 "10 nested folds max
 
 " space open/closes fold
-nnoremap <space> za
+nnoremap - za
 set foldmethod=indent " fold based on indent level
 
 """""""""""""""""""""""""""""""""""""""""
@@ -146,7 +146,7 @@ nnoremap <C-H> <C-W><C-H>
 
 " highlight last inserted text
 nnoremap gV `[v`]
-nnoremap <leader><space> :nohlsearch<CR> " turn off search hilight
+nnoremap <leader>, :nohlsearch<CR> " turn off search hilight
 
 " edit vimrc/zshrc and load vimrc bindings
 nnoremap <leader>ev :e! ~/.vimrc<CR>
