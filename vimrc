@@ -17,6 +17,7 @@ source ~/.config/vim/plugins/floaterm.vim
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
 source ~/.config/vim/plugins/dracula.vim
+source ~/.config/vim/plugins/fzf.vim
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
@@ -172,5 +173,3 @@ if has("autocmd")
     autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
   augroup END
 endif
-
-"source ~/.config/vim/plugins/coc.vim

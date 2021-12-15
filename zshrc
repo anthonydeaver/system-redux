@@ -144,39 +144,43 @@ alias vsh='vim ~/.zshrc'
 # }
 
 
-# kcs () {
-#         if [ ! -d "${HOME}/.kube" ]
-#         then
-#                 echo "echo \"The following directory does not exist: ${HOME}/.kube. Exiting...\""
-#                 return 1
-#         fi
-#         if [ -z "$(ls -A ${HOME}/.kube)" ]
-#         then
-#                 echo "echo \"No configs present in ${HOME}/.kube. Exiting...\""
-#                 return 1
-#         fi
-#         if [ -z "$1" ]
-#         then
-#                 return 1
-#         fi
-#         if [ -z "$1" ]
-#         then
-#                 for kube in $(find "${HOME}/.kube" -maxdepth 1 -type f -o -type l)
-#                 do
-#                         if [[ "${KUBECONFIG}" == "$kube" ]]
-#                         then
-#                                 echo -n "(active) "
-#                         fi
-#                         echo $(basename "${kube}")
-#                 done
-#                 return
-#         fi
-#         if [[ "$1" == "none" ]] || [[ "$1" == "None" ]]
-#         then
-#                 unset KUBECONFIG
-#                 return
-#         fi
-#         if [ -e "${HOME}/.kube/${1}" ]
-#         then
-#                 export KUBECONFIG="${HOME}/.kube/${1}"
-#         else
+ kcs () {
+         if [ ! -d "${HOME}/.kube" ]
+         then
+                 echo "echo \"The following directory does not exist: ${HOME}/.kube. Exiting...\""
+                 return 1
+         fi
+         if [ -z "$(ls -A ${HOME}/.kube)" ]
+         then
+                 echo "echo \"No configs present in ${HOME}/.kube. Exiting...\""
+                 return 1
+         fi
+         if [ -z "$1" ]
+         then
+                 return 1
+         fi
+         if [ -z "$1" ]
+         then
+                 for kube in $(find "${HOME}/.kube" -maxdepth 1 -type f -o -type l)
+                 do
+                         if [[ "${KUBECONFIG}" == "$kube" ]]
+                         then
+                                 echo -n "(active) "
+                         fi
+                         echo $(basename "${kube}")
+                 done
+                 return
+         fi
+         if [[ "$1" == "none" ]] || [[ "$1" == "None" ]]
+         then
+                 unset KUBECONFIG
+                 return
+         fi
+         if [ -e "${HOME}/.kube/${1}" ]
+         then
+                 export KUBECONFIG="${HOME}/.kube/${1}"
+         else
+		 echo "echo \"The following file does not exist: ${HOME}/.kube/${1}. Exiting...\""
+                return 1
+        fi
+ }
