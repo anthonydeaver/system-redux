@@ -4,6 +4,7 @@ Plugin 'neoclide/coc.nvim', {'branch': 'master'}
 let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-pyright',
+  \ 'coc-yaml',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

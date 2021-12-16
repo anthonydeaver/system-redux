@@ -60,6 +60,7 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 colorscheme dracula
+set clipboard+=unnamedplus
 set number " show line numbers
 set relativenumber " show line numbers
 set showmatch " highlight matching [{()}]
@@ -89,11 +90,14 @@ set scrolloff=3 " Start scrolling three lines before horizontal border of window
 """""""""""""""""""""""""""""""""""""""""
 set incsearch " search as characters are typed
 set hlsearch " hilight matches
-
+set ignorecase smartcase
+set encoding=utf-8
+set conceallevel=2
 
 """""""""""""""""""""""""""""""""""""""""
 """" Format settings
 """""""""""""""""""""""""""""""""""""""""
+au BufEnter * set fo-=c fo-=r fo-=o                     " stop annoying auto commenting on new lines
 " 2 spaces = <TAB>
 "set autoindent " Copy indent from last line when starting new line.
 "set shiftwidth=2 " The # of spaces for indenting.
@@ -152,7 +156,15 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
+" switch between splits using ctrl + {h,j,k,l}
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+"nnoremap <C-h> <C-w>h
+"noremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
 " highlight last inserted text
 nnoremap gV `[v`]
 nnoremap <leader>, :nohlsearch<CR> " turn off search hilight

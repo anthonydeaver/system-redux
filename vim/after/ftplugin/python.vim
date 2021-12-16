@@ -5,5 +5,5 @@ set tabstop=4
 set softtabstop=4 " Tab key results in 2 spaces
 set expandtab
 setlocal colorcolumn=80
-setlocal path=src/**, tests, bin/**, app/**
+setlocal path=src/**, bin/**, app/**
 setlocal wildignore=*/__pycache__/*,*.pyc
