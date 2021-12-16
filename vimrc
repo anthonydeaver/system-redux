@@ -157,14 +157,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 " switch between splits using ctrl + {h,j,k,l}
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-"nnoremap <C-h> <C-w>h
-"noremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
+"inoremap <C-h> <C-\><C-N><C-w>h
+"inoremap <C-j> <C-\><C-N><C-w>j
+"inoremap <C-k> <C-\><C-N><C-w>k
+"inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " highlight last inserted text
 nnoremap gV `[v`]
 nnoremap <leader>, :nohlsearch<CR> " turn off search hilight
@@ -193,3 +193,5 @@ if has("autocmd")
     autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
   augroup END
 endif
+
+let g:netrw_preview = 1

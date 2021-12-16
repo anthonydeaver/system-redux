@@ -39,7 +39,9 @@ antigen theme agnoster
 #antigen theme https://gist.github.com/anthonydeaver/ff3a3992f89efbcd4e72a113442428c6
 #antigen theme https://gist.github.com/anthonydeaver/f5359b4a03d45fd2bbde1ec47e9f3624
 antigen apply
+alias vi="vim"
 alias vim="nvim"
+
 # ==================================
 # Config
 # ==================================
@@ -100,6 +102,7 @@ REPORTTIME=5
 # prompt pure
 # # aliases
 alias vsh='vim ~/.zshrc'
+alias 
 # alias devup="(cd ~/.dotfiles && git pull) && ansible-playbook ~/.dotfiles/local.yml --extra-vars username=$(whoami)"
 # alias nethack='telnet nethack.alt.org'
 
@@ -142,7 +145,16 @@ alias vsh='vim ~/.zshrc'
 #   pbzipper $1
 #   split -b 9000m $1.tar.bz2 "$1.tar.bz2.part."
 # }
+dev () {
+         if [ -e "${HOME}/.dotfiles/vim/sessions/${1}.vim" ]
+         then
+                 vim -S "${HOME}/.dotfiles/vim/sessions/${1}.vim" 
+         else
+		 echo "echo \"There is no session for ${1}\""
+                return 1
+        fi
 
+}
 
  kcs () {
          if [ ! -d "${HOME}/.kube" ]
