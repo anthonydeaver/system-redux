@@ -1,6 +1,10 @@
+"""""""""""""""""""""""""""""""""""""""""" 
+" => Vundle setup
 """""""""""""""""""""""""""""""""""""""""
-"  => Vundle setup
-"""""""""""""""""""""""""""""""""""""""""
+" Change mapleader
+let mapleader=" "
+let maplocalleader=" "
+
 let base16colorspace=256
 set nocompatible    " be iMproved, required for Vundle
 filetype off " load filetype-specif indent files        " required for Vundle
@@ -65,10 +69,6 @@ set listchars=tab:➤\ ,trail:·
 set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
 
-" Change mapleader
-let mapleader=" "
-let maplocalleader=" "
-
 " " Local dirs
 " set backupdir=~/.vim/backups
 " set directory=~/.vim/swaps
@@ -122,6 +122,7 @@ set foldmethod=indent " fold based on indent level
 """""""""""""""""""""""""""""""""""""""""
 map gf :edit <cfile><cr>
 inoremap jj <esc>
+nnoremap bb :Buffer<CR>
 
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>

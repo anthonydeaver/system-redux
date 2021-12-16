@@ -1,7 +1,14 @@
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 
-nmap <leader>g :G<cr>
+nmap <leader>gg :G<cr>
+nmap <leader>gc :Git commit<cr>
+nmap <leader>gl :Git clone<cr>
+nmap <leader>gl :Git pull<cr>
+nmap <leader>gp :Git push<cr>
+nmap <leader>gb :Git branch<cr>
 nmap <leader>gc :GCheckout<cr>
-nmap <leader>gj :diffget //3<cr>  
-nmap <leader>gf :diffget //2<cr>  
+nmap <leader>gs :Git stash<cr>
+nmap <leader>gsp :Git stash pop<cr>
+nmap <leader>gj :diffget //3<cr>
+nmap <leader>gf :diffget //2<cr>
