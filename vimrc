@@ -22,6 +22,9 @@ source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
 source ~/.config/vim/plugins/dracula.vim
 source ~/.config/vim/plugins/fzf.vim
+source ~/.config/vim/plugins/ale.vim
+source ~/.config/vim/plugins/yaml-fold.vim
+source ~/.config/vim/plugins/indentline.vim
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
@@ -87,6 +90,7 @@ set scrolloff=3 " Start scrolling three lines before horizontal border of window
 set incsearch " search as characters are typed
 set hlsearch " hilight matches
 
+
 """""""""""""""""""""""""""""""""""""""""
 """" Format settings
 """""""""""""""""""""""""""""""""""""""""
@@ -120,9 +124,12 @@ set foldmethod=indent " fold based on indent level
 """""""""""""""""""""""""""""""""""""""""
 """" => Key bindings
 """""""""""""""""""""""""""""""""""""""""
+
+" Tests
+"?imap <leader>cm 
 map gf :edit <cfile><cr>
 inoremap jj <esc>
-nnoremap bb :Buffer<CR>
+nnoremap <leader>bb :Buffer<CR>
 
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>

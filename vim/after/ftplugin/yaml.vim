@@ -5,3 +5,4 @@ set tabstop=2
 set softtabstop=2 " Tab key results in 2 spaces
 set expandtab
 setlocal colorcolumn=80
+let g:indentLine_char = '⦙'
