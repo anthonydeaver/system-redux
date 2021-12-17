@@ -20,7 +20,8 @@ source ~/.config/vim/plugins/vim-surround.vim
 source ~/.config/vim/plugins/floaterm.vim
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
-source ~/.config/vim/plugins/dracula.vim
+source ~/.config/vim/plugins/gruvbox.vim
+"source ~/.config/vim/plugins/dracula.vim
 source ~/.config/vim/plugins/fzf.vim
 source ~/.config/vim/plugins/ale.vim
 source ~/.config/vim/plugins/yaml-fold.vim
@@ -59,7 +60,8 @@ vnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-colorscheme dracula
+colorscheme gruvbox
+"colorscheme dracula
 set clipboard+=unnamedplus
 set number " show line numbers
 set relativenumber " show line numbers
@@ -77,7 +79,7 @@ syntax enable " enable syntax processing
 " set backupdir=~/.vim/backups
 " set directory=~/.vim/swaps
 
-map <leader>pv :Ex<CR>
+map <leader>po :Ex<CR>
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
 set hidden " When a buffer is brought to foreground, remember undo history and marks.
 set history=1000 " Increase history from 20 default to 1000
@@ -128,7 +130,7 @@ set foldmethod=indent " fold based on indent level
 """""""""""""""""""""""""""""""""""""""""
 """" => Key bindings
 """""""""""""""""""""""""""""""""""""""""
-
+nnoremap PI :PluginInstall!<cr>
 " Tests
 "?imap <leader>cm 
 map gf :edit <cfile><cr>

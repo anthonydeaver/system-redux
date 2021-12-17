@@ -1,3 +1,17 @@
+export ALIEN_SECTIONS_LEFT=(
+  exit
+  user
+  path
+  vcs_branch:async
+  vcs_status:async
+  vcs_dirty:async
+  newline
+  ssh
+  venv
+  prompt
+)
+#export ALIEN_THEME="bnw"
+export ALIEN_CUSTOM_THEME_PATH=~/.dotfiles/themes/alien-gruv.zsh
 # ==================================
 # Antibody
 # ==================================
@@ -43,6 +57,7 @@ antigen apply
 
 alias vi="nvim"
 alias vim="nvim"
+alias slack="docker run -it -v ~/.config/slack-term/config:/config erroneousboat/slack-term"
 
 # ==================================
 # Config
@@ -79,7 +94,7 @@ setopt auto_cd
 # Show time taken for the command to finish, if it takes longer than this many seconds.
 REPORTTIME=5
 # # Path to your oh-my-zsh installation.
-# #export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # # Case sensitive completion must be off. _ and - will be interchangeable.
 
@@ -89,7 +104,7 @@ REPORTTIME=5
 # # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-#export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$HOME/scripts:$HOME/.local/bin:$PATH
+export PATH=$(pyenv root)/versions/$(pyenv version-name)/bin:$HOME/scripts:$HOME/.local/bin:/usr/local/go/bin:$PATH
 
 #path = (
 #  $(pyenv root)/versions/$(pyenv version-name)/bin
@@ -97,7 +112,7 @@ REPORTTIME=5
 #  $HOME/.local/bin
 #  $path
 #)
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 # autoload -U promptinit; promptinit
 # # set pureshell prompt
