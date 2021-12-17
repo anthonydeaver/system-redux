@@ -1,10 +1,12 @@
-"""""""""""""""""""""""""""""""""""""""""" 
-" => Vundle setup
-"""""""""""""""""""""""""""""""""""""""""
 " Change mapleader
+" Do this here since plugin specific bindings are defined in their
+" .vim files
 let mapleader=" "
 let maplocalleader=" "
 
+"""""""""""""""""""""""""""""""""""""""""" 
+" => Vundle setup
+"""""""""""""""""""""""""""""""""""""""""
 let base16colorspace=256
 set nocompatible    " be iMproved, required for Vundle
 filetype off " load filetype-specif indent files        " required for Vundle
@@ -25,6 +27,7 @@ source ~/.config/vim/plugins/fzf.vim
 source ~/.config/vim/plugins/ale.vim
 source ~/.config/vim/plugins/yaml-fold.vim
 source ~/.config/vim/plugins/indentline.vim
+source ~/.config/vim/plugins/vim-airline.vim
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
@@ -36,10 +39,7 @@ source ~/.config/vim/plugins/indentline.vim
 "Plugin 'nvim-lua/popup.nvim'
 "Plugin 'nvim-telescope/telescope-fzy-native.nvim'
 "Plugin 'tpope/vim-sensible'
-Plugin 'vim-airline/vim-airline'
-""Plugin 'sjl/gundo'
 "Plugin 'jceb/vim-orgmode'
-"Plugin 'dracula/vim', { 'name': 'dracula' }
 call vundle#end()   " required
 filetype plugin indent on " load filetype-specif indent files
 
@@ -47,17 +47,6 @@ filetype plugin indent on " load filetype-specif indent files
 """" Basic settings
 """""""""""""""""""""""""""""""""""""""""
 set noswapfile
-" FOrce myself not to use the Arrow keys!
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-nnoremap Y y$
-nnoremap <leader>p "+p
-vnoremap <leader>P "+P
-vnoremap <leader>p "+p
-vnoremap <leader>P "+P
 
 colorscheme dracula
 set clipboard+=unnamedplus
@@ -98,21 +87,12 @@ set conceallevel=2
 """" Format settings
 """""""""""""""""""""""""""""""""""""""""
 au BufEnter * set fo-=c fo-=r fo-=o                     " stop annoying auto commenting on new lines
-" 2 spaces = <TAB>
-"set autoindent " Copy indent from last line when starting new line.
-"set shiftwidth=2 " The # of spaces for indenting.
-"set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
-"set tabstop=2
-"set softtabstop=2 " Tab key results in 2 spaces
-"set expandtab
-"setlocal colorcolumn=80
-" set title " Show the filename in the window titlebar.
-" set ttyfast " Send more characters at a given time.
-" set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
-" set wildmode=list:longest " Complete only until point of ambiguity.
-
+setlocal colorcolumn=80
+set title " Show the filename in the window titlebar.
+set ttyfast " Send more characters at a given time.
+set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
+set wildmode=list:longest " Complete only until point of ambiguity.
 set textwidth=79
-" set formatoptions=qrn1
 
 """""""""""""""""""""""""""""""""""""""""
 """" Folding
@@ -122,13 +102,24 @@ set foldlevelstart=10 " anything with less than 10 levels of nesting will be ope
 set foldnestmax=10 "10 nested folds max
 
 " space open/closes fold
-nnoremap - za
 set foldmethod=indent " fold based on indent level
 
 """""""""""""""""""""""""""""""""""""""""
 """" => Key bindings
 """""""""""""""""""""""""""""""""""""""""
+" FOrce myself not to use the Arrow keys!
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
+nnoremap Y y$
+nnoremap <leader>p "+p
+vnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+nnoremap - za
 " Tests
 "?imap <leader>cm 
 map gf :edit <cfile><cr>
@@ -138,7 +129,6 @@ nnoremap <leader>bb :Buffer<CR>
 imap ;; <Esc>A;<Esc>
 imap ,, <Esc>A,<Esc>
 
-" nnoremap <leader>w
 nnoremap <C-\> <Esc>0i"<Esc>
 
 " move vertically by visual line
@@ -147,26 +137,19 @@ nnoremap k gk
 nnoremap J 5j
 nnoremap K 5k
 
+" switch between splits using ctrl + {h,j,k,l}
 " remap pane switching
 map <silent> <S-Left> <C-w><
 map <silent> <S-Down> <C-W>-
 map <silent> <S-Up> <C-W>+
 map <silent> <S-Right> <C-w>>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-" switch between splits using ctrl + {h,j,k,l}
-"inoremap <C-h> <C-\><C-N><C-w>h
-"inoremap <C-j> <C-\><C-N><C-w>j
-"inoremap <C-k> <C-\><C-N><C-w>k
-"inoremap <C-l> <C-\><C-N><C-w>l
-nnoremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
+
 " highlight last inserted text
-nnoremap gV `[v`]
+"nnoremap gV `[v`]
 nnoremap <leader>, :nohlsearch<CR> " turn off search hilight
 
 " edit vimrc/zshrc and load vimrc bindings
@@ -176,13 +159,8 @@ nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <leader>sz :source ~/.zshrc<CR>
 nmap <leader>en :edit ~/.config/nvim/init.vim<cr>
 nmap <leader>sn :source ~/.config/nvim/init.vim<cr>
-:nnoremap <F5> "=strftime("%c")<CR>P
-:inoremap <F5> <C-R>=strftime("%c")<CR>
-" toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
-" " Fix page up and down
-" map <PageUp> <C-U>
-" map <PageDown> <C-D>
+nnoremap <F5> "=strftime("%c")<CR>P
+inoremap <F5> <C-R>=strftime("%c")<CR>
 set shell=/bin/bash
 
 """""""""""""""""""""""""""""""""""""""""
@@ -195,3 +173,4 @@ if has("autocmd")
 endif
 
 let g:netrw_preview = 1
+
