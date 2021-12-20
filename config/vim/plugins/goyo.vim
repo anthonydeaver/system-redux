@@ -1,0 +1,1 @@
+Plugin 'junegunn/goyo.vim'

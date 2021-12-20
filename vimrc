@@ -29,6 +29,9 @@ source ~/.config/vim/plugins/ale.vim
 source ~/.config/vim/plugins/yaml-fold.vim
 source ~/.config/vim/plugins/indentline.vim
 source ~/.config/vim/plugins/vim-airline.vim
+source ~/.config/vim/plugins/vim-venv.vim
+source ~/.config/vim/plugins/goyo.vim
+source ~/.config/vim/plugins/commentary.vim
 "Plugin 'tpope/vim-commentary'
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
@@ -40,8 +43,9 @@ source ~/.config/vim/plugins/vim-airline.vim
 "Plugin 'nvim-lua/popup.nvim'
 "Plugin 'nvim-telescope/telescope-fzy-native.nvim'
 "Plugin 'tpope/vim-sensible'
-"Plugin 'jceb/vim-orgmode'
-call vundle#end()   " required
+
+call vundle#end()
+
 filetype plugin indent on " load filetype-specif indent files
 
 """""""""""""""""""""""""""""""""""""""""
@@ -49,7 +53,7 @@ filetype plugin indent on " load filetype-specif indent files
 """""""""""""""""""""""""""""""""""""""""
 set noswapfile
 
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme dracula
 set clipboard+=unnamedplus
 set number " show line numbers
@@ -93,7 +97,13 @@ setlocal colorcolumn=80
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).
-set wildmode=list:longest " Complete only until point of ambiguity.
+set wildmode=list,longest,full " Complete only until point of ambiguity.
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
 set textwidth=79
 
 """""""""""""""""""""""""""""""""""""""""
@@ -109,9 +119,6 @@ set foldmethod=indent " fold based on indent level
 """""""""""""""""""""""""""""""""""""""""
 """" => Key bindings
 """""""""""""""""""""""""""""""""""""""""
-<<<<<<< HEAD
-nnoremap PI :PluginInstall!<cr>
-=======
 " FOrce myself not to use the Arrow keys!
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
@@ -125,11 +132,11 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 nnoremap - za
->>>>>>> bd686e6da8e773adc20692aa4d6ab9c5b9ae1ac0
 " Tests
 "?imap <leader>cm 
 map gf :edit <cfile><cr>
 inoremap jj <esc>
+nnoremap <leader>j J
 nnoremap <leader>bb :Buffer<CR>
 
 imap ;; <Esc>A;<Esc>
@@ -179,4 +186,13 @@ if has("autocmd")
 endif
 
 let g:netrw_preview = 1
+let g:netrw_altv = 1
+let g:netrw_dirhistmax = 0
+"
+" Custom commands
+"
 
+command Devops :source ~/.dotfiles/vim/sessions/devops.vim
+let g:python3_host_prog='~/.pyenv/versions/3.8.10/bin/python'
+let g:virtualenv_auto_activate=1
+"let g:python3_host_prog='/home/adeaver/.pyenv/versions/3.8.10/bin/python'
