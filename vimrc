@@ -23,26 +23,21 @@ source ~/.config/vim/plugins/floaterm.vim
 source ~/.config/vim/plugins/vim-test.vim
 source ~/.config/vim/plugins/coc.vim
 source ~/.config/vim/plugins/gruvbox.vim
-"source ~/.config/vim/plugins/dracula.vim
 source ~/.config/vim/plugins/fzf.vim
 source ~/.config/vim/plugins/ale.vim
-source ~/.config/vim/plugins/yaml-fold.vim
 source ~/.config/vim/plugins/indentline.vim
 source ~/.config/vim/plugins/vim-airline.vim
 source ~/.config/vim/plugins/vim-venv.vim
 source ~/.config/vim/plugins/goyo.vim
 source ~/.config/vim/plugins/commentary.vim
-"Plugin 'tpope/vim-commentary'
+source ~/.config/vim/plugins/vinegar.vim
+source ~/.config/vim/plugins/telescope.vim
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
 "Plugin 'editorconfig/editorconfig-vim'
 "Plugin 'kien/ctrlp.vim'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'nvim-lua/plenary.nvim'
-"Plugin 'nvim-telescope/telescope.nvim'
 "Plugin 'nvim-lua/popup.nvim'
 "Plugin 'nvim-telescope/telescope-fzy-native.nvim'
-"Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
@@ -51,9 +46,11 @@ filetype plugin indent on " load filetype-specif indent files
 """""""""""""""""""""""""""""""""""""""""
 """" Basic settings
 """""""""""""""""""""""""""""""""""""""""
+" Automatically change the working directory (for Git purposes)
+set autochdir
 set noswapfile
 
-"colorscheme gruvbox
+colorscheme gruvbox
 "colorscheme dracula
 set clipboard+=unnamedplus
 set number " show line numbers
@@ -160,14 +157,18 @@ nnoremap <C-j> <C-W><C-J>
 nnoremap <C-k> <C-W><C-K>
 nnoremap <C-l> <C-W><C-L>
 nnoremap <C-h> <C-W><C-H>
+inoremap <C-j> <C-W><C-J>
+inoremap <C-k> <C-W><C-K>
+inoremap <C-l> <C-W><C-L>
+inoremap <C-h> <C-W><C-H>
 
 " highlight last inserted text
 "nnoremap gV `[v`]
 nnoremap <leader>, :nohlsearch<CR> " turn off search hilight
 
 " edit vimrc/zshrc and load vimrc bindings
-nnoremap <leader>ev :e! ~/.vimrc<CR>
-nnoremap <leader>ez :e! ~/.zshrc<CR>
+nnoremap <leader>ev :e! ~/.dotfiles/vimrc<CR>
+nnoremap <leader>ez :e! ~/.dotfiles/zshrc<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
 nnoremap <leader>sz :source ~/.zshrc<CR>
 nmap <leader>en :edit ~/.config/nvim/init.vim<cr>

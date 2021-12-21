@@ -110,7 +110,6 @@ REPORTTIME=5
 # # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-source $ZSH/oh-my-zsh.sh
 
 alias vsh='vim ~/.zshrc'
 # alias devup="(cd ~/.dotfiles && git pull) && ansible-playbook ~/.dotfiles/local.yml --extra-vars username=$(whoami)"
@@ -179,3 +178,4 @@ kcs () {
                 return 1
         fi
 }
+source $ZSH/oh-my-zsh.sh

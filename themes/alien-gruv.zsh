@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/zsh
 
 alien_theme(){
   ALIEN_PROMPT_FG=106

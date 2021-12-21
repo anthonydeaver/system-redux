@@ -26,7 +26,7 @@ nmap <leader>gi :Git commit<cr>
 nmap <leader>gl :Git pull<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>gb :Git branch<cr>
-nmap <leader>gc :GCheckout<cr>
+nmap <leader>gc :GBranches<cr>
 nmap <leader>gs :Git stash<cr>
 nmap <leader>ga :Git add<cr>
 nmap <leader>gf :Git fetch<cr>
