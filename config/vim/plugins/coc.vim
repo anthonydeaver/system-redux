@@ -1,8 +1,9 @@
-Plugin 'neoclide/coc.nvim', {'branch': 'master'}
-"Plugin 'antoinemadec/coc-fzf'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'antoinemadec/coc-fzf'
 
 let g:coc_global_extensions = [
   \ 'coc-json',
+  \ 'coc-diagnostic',
   \ 'coc-pyright',
   \ 'coc-yaml',
   \ ]
@@ -22,13 +23,18 @@ function! s:check_back_space() abort
 endfunction
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nmap <silent> <leader>ci <Plug>(coc-implementation)
+nmap <silent> <leader>cr <Plug>(coc-references)
+
+" apply autofix to problem on the current line.
+nmap <leader>af  <plug>(coc-fix-current)
+nmap <leader>am  <plug>(coc-format-selected)
+
 
 " Use K to show documentation in preview window.
-"nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent><leader> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

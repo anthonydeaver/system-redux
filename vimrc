@@ -32,6 +32,8 @@ source ~/.config/vim/plugins/goyo.vim
 source ~/.config/vim/plugins/commentary.vim
 source ~/.config/vim/plugins/vinegar.vim
 source ~/.config/vim/plugins/telescope.vim
+source ~/.config/vim/plugins/autoflake.vim
+source ~/.config/vim/plugins/autoimport.vim
 "Plugin 'tpope/vim-markdown'
 "Plugin 'tpope/vim-speeddating'
 "Plugin 'editorconfig/editorconfig-vim'
@@ -64,6 +66,7 @@ set list
 set listchars=tab:➤\ ,trail:·
 set showcmd " show command in bottom bar
 syntax enable " enable syntax processing
+syntax on
 
 " " Local dirs
 " set backupdir=~/.vim/backups
@@ -183,6 +186,7 @@ set shell=/bin/bash
 if has("autocmd")
   augroup templates
     autocmd BufNewFile meeting* 0r ~/.vim/templates/meeting.md
+    autocmd BufNewFile daily* 0r ~/.vim/templates/daily.md
   augroup END
 endif
 
@@ -194,6 +198,6 @@ let g:netrw_dirhistmax = 0
 "
 
 command Devops :source ~/.dotfiles/vim/sessions/devops.vim
-let g:python3_host_prog='~/.pyenv/versions/3.8.10/bin/python'
+let g:python3_host_prog='~/.pyenv/versions/3.8.5/bin/python'
 let g:virtualenv_auto_activate=1
 "let g:python3_host_prog='/home/adeaver/.pyenv/versions/3.8.10/bin/python'
