@@ -25,7 +25,7 @@ source ~/.config/vim/plugins/coc.vim
 source ~/.config/vim/plugins/gruvbox.vim
 source ~/.config/vim/plugins/fzf.vim
 source ~/.config/vim/plugins/ale.vim
-source ~/.config/vim/plugins/indentline.vim
+" source ~/.config/vim/plugins/indentline.vim
 source ~/.config/vim/plugins/vim-airline.vim
 source ~/.config/vim/plugins/vim-venv.vim
 source ~/.config/vim/plugins/goyo.vim
@@ -87,13 +87,14 @@ set incsearch " search as characters are typed
 set hlsearch " hilight matches
 set ignorecase smartcase
 set encoding=utf-8
-set conceallevel=2
+" set conceallevel=2
 
 """""""""""""""""""""""""""""""""""""""""
 """" Format settings
 """""""""""""""""""""""""""""""""""""""""
 au BufEnter * set fo-=c fo-=r fo-=o                     " stop annoying auto commenting on new lines
 setlocal colorcolumn=80
+set nowrap
 set title " Show the filename in the window titlebar.
 set ttyfast " Send more characters at a given time.
 set wildchar=<TAB> " Character for CLI expansion (TAB-completion).

@@ -7,7 +7,7 @@ List meeting participants using their \[\[mention\]\] name
 - [ ] [[people.anthony]]
 - [ ]
 
-## Goals
+## Agenda
 List goals for the meeting (e.g., Set design priorities for FY22)
 
 -

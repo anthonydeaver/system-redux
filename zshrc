@@ -37,7 +37,7 @@ antigen bundle pip
 antigen bundle python
 #antigen bundle pyenv
 antigen bundle pylint
-antigen bundle virtualenvwrapper
+# antigen bundle virtualenvwrapper
 antigen bundle terraform
 antigen bundle screen
 antigen theme eendroroy/alien alien
@@ -53,7 +53,12 @@ antigen apply
 alias vi="nvim"
 alias vim="nvim"
 alias slack="docker run -it -v ~/.config/slack-term/config:/config erroneousboat/slack-term"
-
+alias knet="kubectl run tmp-shell-$(whoami) --rm -i --tty --image nicolaka/netshoot -- /bin/bash"
+alias ls="exa"
+alias ll="exa -alh"
+alias tree="exa --tree"
+source $ZSH/oh-my-zsh.sh
+  export PATH="/Users/aydeaver/Applications:$PATH"
 # ==================================
 # Virtualenv
 # ==================================
@@ -65,6 +70,9 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 if [ -e "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh" ]; then
+  export VIRTUALENVWRAPPER_PYTHON="$HOME/.pyenv/versions/$(pyenv version-name)/bin/python"
+  export VIRTUALENVWRAPPER_SCRIPT="$(command \which virtualenvwrapper.sh)"
+  export VIRTUAL_ENV_DISABLE_PROMPT=
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/workspaces
   mkdir -p $WORKON_HOME
@@ -130,7 +138,7 @@ fi
 dev () {
          if [ -e "${HOME}/.dotfiles/vim/sessions/${1}.vim" ]
          then
-                 vim -S "${HOME}/.dotfiles/vim/sessions/${1}.vim" 
+                 vim -S "${HOME}/.dotfiles/vim/sessions/${1}.vim"
          else
 		 echo "echo \"There is no session for ${1}\""
                 return 1
@@ -178,4 +186,21 @@ kcs () {
                 return 1
         fi
 }
-source $ZSH/oh-my-zsh.sh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/aydeaver/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/aydeaver/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/aydeaver/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/aydeaver/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+. /Users/aydeaver/.asdf/asdf.sh
