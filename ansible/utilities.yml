@@ -14,16 +14,6 @@
       dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
       update: yes
 
-  - name: (Utilities) Install utilities from brew
-    homebrew:
-      name: [
-        'tree', 
-        'timewarrior',
-        'exa',
-        'pyenv'
-      ]
-      state: present
-
   - name: (Utilities) Install vundle
     git:
       repo: https://github.com/VundleVim/Vundle.vim.git
