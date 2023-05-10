@@ -6,13 +6,14 @@
         'git', 
         'helm', 
         'kubernetes-cli', 
-        'jq', 
         'yarn', 
-        'terraform', 
         'telnet', 
         'awscli', 
         'minikube', 
         'pyenv',
-        'jupyter'
+        'jupyter',
+        'tree', 
+        'timewarrior',
+        'exa'
       ]
       state: present
