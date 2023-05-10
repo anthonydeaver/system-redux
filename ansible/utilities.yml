@@ -18,7 +18,9 @@
     homebrew:
       name: [
         'tree', 
-        'timewarrior'
+        'timewarrior',
+        'exa',
+        'pyenv'
       ]
       state: present
 
