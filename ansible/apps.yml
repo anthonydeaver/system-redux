@@ -4,12 +4,9 @@
       state: present
       accept_external_apps: yes
     with_items:
-      - firefox
       - iterm2
-      - franz
       - google-chrome
       - visual-studio-code
-      - spotify
       - sublime-text
       - pgadmin4
     tags:
