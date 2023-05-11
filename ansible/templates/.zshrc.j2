@@ -1,0 +1,18 @@
+
+# Load personal pre oh-my-zsh init config which should be stored in ~/.zshrc.personal.before
+# E.g. setting ZSH theme etc
+if [ -f ~/.zsh/zsh.personal.before ]; then . ~/.zsh/zsh.personal.before; fi
+
+
+source $ZSH/oh-my-zsh.sh
+
+# # Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Load personal ZSH config which should be stored in ~/.zshrc.personal.after
+# Most ZSH config e.g. aliases etc goes here
+if [ -f ~/.zsh/zsh.personal.after ]; then . ~/.zsh/zsh.personal.after; fi
+
+
+. /Users/aydeaver/.asdf/asdf.sh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"

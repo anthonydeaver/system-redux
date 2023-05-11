@@ -1,0 +1,52 @@
+
+export ALIEN_SECTIONS_LEFT=(
+  exit
+  user
+  path
+  vcs_branch:async
+  vcs_status:async
+  vcs_dirty:async
+  newline
+  ssh
+  venv
+  prompt
+)
+#export ALIEN_THEME="bnw"
+export ALIEN_CUSTOM_THEME_PATH=~/.zsh/themes/alien-gruv.zsh
+# ==================================
+# Antibody
+# ==================================
+# Load the Antigen plugin manager for zsh.
+source ~/.zsh/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle git
+antigen bundle github
+antigen bundle git-flow
+antigen bundle vi-mode
+antigen bundle kubectl
+antigen bundle macos
+antigen bundle helm
+antigen bundle aws
+antigen bundle iterm2
+antigen bundle jira
+antigen bundle pip
+antigen bundle python
+#antigen bundle pyenv
+antigen bundle pylint
+# antigen bundle virtualenvwrapper
+antigen bundle terraform
+antigen bundle screen
+antigen theme eendroroy/alien alien
+
+# other bundles
+antigen bundle zsh-users/zsh-autosuggestions
+
+# This needs to be the last bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen apply

@@ -1,0 +1,377 @@
+// Place your key bindings in this file to override the defaultsauto[]
+// Each binding is defined twice, onces for windows and once for mac os.
+// Layout is configured to match Mac since I spend the most amount of time there
+// Mac: CTRL - ALT - CMD
+// Win: CTRL - WIN - ALT
+[
+    {
+        "key": "ctrl+l n",
+        "command": "dendron.lookupNote",
+        "args": {
+            "noteType": "journal",
+            "value": "${fileBasenameNoExtension}"
+        }
+    },
+    {
+        "key": "ctrl+l w",
+        "command": "dendron.lookupNote",
+        "args": {
+            "noteType": "weekly",
+            "value": "${fileBasenameNoExtension}"
+        }
+    },
+    {
+        "key": "ctrl+shift+l n",
+        "command": "dendron.lookupNote",
+        "args": {
+            "noteType": "onweek",
+            "value": "${fileBasenameNoExtension}"
+        }
+    },
+
+    {
+        "key": "ctrl+l s",
+        "command": "dendron.lookupNote",
+        "args": {
+          "noteType": "scratch",
+          "selectionType": "selection2link",
+          "noConfirm": true
+        }
+    },
+    {
+        "key": "ctrl+l t",
+        "command": "search.action.openNewEditor",
+        "args": {
+        "query": "",
+        "triggerSearch": false,
+        "focusResults": false,
+        "isRegexp": true,
+        "includes": "*"
+        }
+    },
+    {
+        "key": "ctrl+k n",
+        "command": "dendron.insertNote"
+    },
+    // look in proj.*
+    {
+        "key": "ctrl+l p",
+        "command": "dendron.lookupNote",
+        "args": {
+            "value": "proj.*"
+        }
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.switchWindow"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.switchWindow"
+    },
+    {
+        "key": "shift+win+a",
+        "command": "workbench.action.moveEditorLeftInGroup"
+    },
+    {
+        "key": "ctrl+shift+pageup",
+        "command": "-workbench.action.moveEditorLeftInGroup"
+    },
+    {
+        "key": "shift+win+d",
+        "command": "workbench.action.moveEditorRightInGroup"
+    },
+    {
+        "key": "ctrl+shift+pagedown",
+        "command": "-workbench.action.moveEditorRightInGroup"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "python.runCurrentTestFile"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "extension.jumpy-word"
+    },
+    // == Extensions
+    // Markdown Shortcuts
+    {
+        "key": "ctrl+m ctrl+l",
+        "command": "md-shortcut.toggleLink"
+    },
+    // == Navigation
+    // --- Terminal
+    {
+        "key": "alt+shift+h",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+shift+l",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+shift+h",
+        "command": "workbench.action.terminal.focusPrevious",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+shift+l",
+        "command": "workbench.action.terminal.focusNext",
+        "when": "terminalFocus"
+    },
+    // --- Windows
+    {
+        "key": "cmd+1",
+        "command": "workbench.action.openEditorAtIndex1"
+    },
+    {
+        "key": "cmd+2",
+        "command": "workbench.action.openEditorAtIndex2"
+    },
+    {
+        "key": "cmd+3",
+        "command": "workbench.action.openEditorAtIndex3"
+    },
+    {
+        "key": "cmd+4",
+        "command": "workbench.action.openEditorAtIndex4"
+    },
+    {
+        "key": "cmd+5",
+        "command": "workbench.action.openEditorAtIndex5"
+    },
+    // --- Editor
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "ctrl+2",
+        "command": "workbench.action.focusSecondEditorGroup"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "workbench.action.focusThirdEditorGroup"
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.action.focusFourthEditorGroup"
+    },
+    {
+        "key": "ctrl+5",
+        "command": "workbench.action.focusFifthEditorGroup"
+    },
+    {
+        "key": "cmd+shift+[",
+        "command": "workbench.action.previousEditor"
+    },
+    // == Display
+    // Maximize Terminal
+    {
+        "command": "workbench.action.toggleMaximizedPanel",
+        "key": "alt+ctrl+j"
+    },
+    {
+        "command": "workbench.action.closePanel",
+        "key": "alt+ctrl+q p"
+    },
+    {
+        "command": "workbench.action.toggleMaximizedPanel",
+        "key": "cmd+ctrl+j"
+    },
+    {
+        "command": "workbench.action.closePanel",
+        "key": "cmd+ctrl+q p"
+    },
+    // Toggle current window size
+    {
+        "command": "workbench.action.toggleEditorWidths",
+        "key": "ctrl+alt+e"
+    },
+    // Toggle Sidebar
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "alt+ctrl+space"
+    },
+    {
+        "command": "editor.action.triggerSuggest",
+        "key": "shift+ctrl+space"
+    },
+    {
+        "command": "workbench.action.toggleEditorWidths",
+        "key": "ctrl+cmd+e"
+    },
+    // Toggle Sidebar
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "cmd+ctrl+space"
+    },
+    // Go to definition
+    {
+        "command": "editor.action.revealDefinition",
+        "key": "ctrl+enter",
+        "when": "editorFocus"
+    },
+    // Peek Definition
+    {
+        "key": "ctrl+p",
+        "command": "editor.action.peekDefinition"
+    },
+    // Toggle between terminal and editor
+    {
+        "key": "ctrl+y",
+        "command": "workbench.action.terminal.focus"
+    },
+    // Insert snippet
+    {
+        "key": "ctrl+k s",
+        "command": "editor.action.insertSnippet",
+    },
+    // Go to definition
+    {
+        "command": "editor.action.revealDefinition",
+        "key": "ctrl+enter",
+        "when": "editorFocus"
+    },
+    // Peek Definition
+    {
+        "key": "ctrl+p",
+        "command": "editor.action.peekDefinition"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+win+r",
+        "command": "workbench.action.closeEditorsToTheRight"
+    },
+    {
+        "key": "ctrl+alt+r",
+        "command": "workbench.action.closeEditorsToTheRight"
+    },
+    {
+        "key": "shift+alt+ctrl+p",
+        "command": "dendron.showPreviewV2"
+    },
+    {
+        "key": "shift+alt+s",
+        "command": "dendron.lookupNote",
+        "when": "dendron:pluginActive"
+    },
+    {
+        "key": "ctrl+shift+s",
+        "command": "-dendron.lookupNote",
+        "when": "dendron:pluginActive"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "dendron.sync"
+    },
+    {
+        "key": "ctrl+m ctrl+m",
+        "command": "-md-shortcut.showCommandPalette",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+m ctrl+m",
+        "command": "markdown-preview-enhanced.openMermaidConfig"
+    },
+    {
+        "key": "ctrl+m ctrl+t",
+        "command": "md-shortcut.addTable"
+    },
+    {
+        "key": "ctrl+m ctrl+s",
+        "command": "md-shortcut.toggleStrikethrough"
+    },
+    {
+        "key": "ctrl+k i",
+        "command": "dendron.insertNoteIndex"
+    },
+    {
+        "key": "ctrl+k ctrl+d",
+        "command": "-editor.action.moveSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+k l",
+        "command": "dendron.insertNoteLink"
+    },
+    {
+        "key": "ctrl+k o",
+        "command": "-workbench.action.files.showOpenedFileInNewWindow",
+        "when": "emptyWorkspaceSupport"
+    },
+    {
+        "key": "ctrl+k o",
+        "command": "dendron.openLink"
+    },
+    {
+        "key": "ctrl+=",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+\\ d",
+        "command": "workbench.action.splitEditorDown"
+    },
+    {
+        "key": "ctrl+\\ l",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+\\",
+        "command": "-workbench.action.splitEditor"
+    },
+    {
+        "key": "ctrl+k shift+enter",
+        "command": "workbench.action.pinEditor",
+        "when": "!activeEditorIsPinned"
+    },
+    {
+        "key": "cmd+k shift+enter",
+        "command": "-workbench.action.pinEditor",
+        "when": "!activeEditorIsPinned"
+    },
+    {
+        "key": "shift+backspace",
+        "command": "-deleteAllLeft",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "-md-shortcut.toggleImage",
+        "when": "editorTextFocus && markdownShortcuts:enabled"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "dendron.deleteNode",
+        "when": "dendron:pluginActive"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "-dendron.deleteNode",
+        "when": "dendron:pluginActive"
+    },
+    {
+        "key": "ctrl+k shift+enter",
+        "command": "workbench.action.unpinEditor",
+        "when": "activeEditorIsPinned"
+    },
+    {
+        "key": "cmd+k shift+enter",
+        "command": "-workbench.action.unpinEditor",
+        "when": "activeEditorIsPinned"
+    },
+]
