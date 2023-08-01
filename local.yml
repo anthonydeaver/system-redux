@@ -9,29 +9,39 @@
         line: '/opt/homebrew/bin'
       become: true
       become_user: root
-
-    - name: Install Dotfiles
-      include_tasks: ./ansible/dotfiles.yml
-
-    - name: Setup Asthetics
-      include_tasks: ./ansible/asthetics.yml
-
-    # - name: Install Homebrew apps
-    #   include_tasks: ./ansible/homebrew.yml
-
-    - name: Install and Setup Oh My ZSH
-      include_tasks: ./ansible/zsh.yml
-
-    - name: Install Utilities
-      include_tasks: ./ansible/utilities.yml
-
-    - name: Install asdf
-      include_tasks: ./ansible/asdf.yml
-
-    - name: Configure VSCode for Mac
-      include_tasks: ./ansible/osx_vscode.yml
       when: "'MacOSX' in ansible_distribution"
 
-    - name: Configure asdf for IaC
-      include_tasks: ./ansible/iac_asdf.yml
+    - name: Setup for Ubuntu
+      include_tasks: ./ansible/ubuntu.yml
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Universal playbooks
+      block: 
+        - name: Install Dotfiles
+          include_tasks: ./ansible/dotfiles.yml
+
+        # - name: Install Homebrew apps
+        #   include_tasks: ./ansible/homebrew.yml
+
+        - name: Install and Setup Oh My ZSH
+          include_tasks: ./ansible/zsh.yml
+
+        # - name: Install Utilities
+        #   include_tasks: ./ansible/utilities.yml
+
+        - name: Install asdf
+          include_tasks: ./ansible/asdf.yml
+
+        - name: Setup and configure pyenv
+          include_tasks: ./ansible/pyenv.yml
+
+        - name: Setup and configure kubectl
+          include_tasks: ./ansible/kubectl.yml
+
+        - name: Configure VSCode
+          include_tasks: ./ansible/vscode.yml
+          when: "'MacOSX' in ansible_distribution"
+
+        - name: Configure asdf for IaC
+          include_tasks: ./ansible/iac_asdf.yml
 

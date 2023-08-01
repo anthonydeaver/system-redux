@@ -1,25 +1,25 @@
 
   - name: "Add asdf plugins"
     shell: |
-      source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
+      source {{ lookup('env', 'HOME') }}/.asdf/asdf.sh
       asdf plugin-add {{ item }} || exit 0
     with_items:
       - aws-nuke
 
   - name: "Install  plugins"
     shell: |
-      asdf install aws-nuke
+      asdf install aws-nuke latest
       asdf global aws-nuke latest
 
   - name: "Install SSM Tools"
     shell: |
       asdf plugin add aws-ssm-tools https://github.com/amrox/asdf-pyapp.git
-      asdf install aws-ssm-tools
+      asdf install aws-ssm-tools latest
       asdf global aws-ssm-tools latest
 
   - name: "Install YayJSV Tool"
     shell: |
       asdf plugin add yayjsv https://github.com/DRE-IaC/asdf-yajsv.git
       chmod +x  ~/.asdf/plugins/yayjsv/bin/install
-      asdf install yayjsv
+      asdf install yayjsv latest
       asdf global yayjsv latest

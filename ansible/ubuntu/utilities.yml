@@ -1,0 +1,74 @@
+- name: Install libraries
+  become: true
+  become_user: root
+  register: updatesys
+  apt:
+    update_cache: yes
+    name: 
+      - libbz2-dev
+      - libffi-dev
+      - liblzma-dev
+      - libncursesw5-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - libxml2-dev
+      - libxmlsec1-dev
+      - llvm
+      - tk-dev
+      - xz-utils
+      - zlib1g-dev
+
+
+- name: Install apps
+  become: true
+  become_user: root
+  register: updatesys
+  apt:
+    update_cache: yes
+    name: 
+      - build-essential     
+      - curl
+      - gcc
+      - git
+      - gpg
+      - make
+      - wget
+
+- name: Setup and install VSCode
+  become: true
+  become_user: root
+  block:
+    - name: armored key
+      get_url: 
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        dest: /etc/apt/keyrings/packages.microsoft.gpg
+
+    - name: setup sources
+      shell: |
+        sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+#     - name: apt source
+#       apt_repository:
+#         repo: "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main"
+#         state: present
+# - name: import the vscode apt key
+#   apt_key:
+#     url: https://packages.microsoft.com/keys/microsoft.asc
+#     state: present
+#   become: true
+
+# - name: install elasticsearch 6.x deb repository
+#   apt_repository:
+#     repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+#     state: present
+#   become: true
+
+# - name: install elasticsearch 6.x
+#   apt:
+#     name: "{{ item }}"
+#     state: present
+#     update_cache: true
+#   loop:
+#     - openjdk-8-jre-headless
+#     - elasticsearch
+#   become: true

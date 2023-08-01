@@ -1,0 +1,20 @@
+- name: Ubuntu specific
+  block:
+    - name: Ansible Update Cache and Upgrade all Packages
+      become: true
+      become_user: root
+      register: updatesys
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Display the last line of the previous task to check the stats
+      debug:
+        msg:  "{{updatesys.stdout_lines|last}}"
+
+    - name: Install Linux utilities
+      include_tasks: ./ansible/ubuntu/utilities.yml
+
+    - name: Setup Asthetics
+      include_tasks: ./ansible/ubuntu/asthetics.yml

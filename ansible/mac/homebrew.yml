@@ -1,0 +1,60 @@
+  - name: Install Apps
+    community.general.homebrew_cask:
+      name: "{{ item }}"
+      install_options: 'appdir=/Applications'
+    ignore_errors: yes
+    with_items:
+      - 1password
+      - docker
+      - google-chrome
+      - iterm2
+      - open-lens
+      - pgadmin4
+      - slack
+      - sublime-text
+      - vagrant
+      - visual-studio-code
+
+  - name: "Install homebrew packages"
+    community.general.homebrew:
+      name: [
+        'autoconf',
+        'automake',
+        'awscli',
+        'curl',
+        'coreutils',
+        'exa',
+        'fzf',
+        'gettext', 
+        'git', 
+        'gnu-getopt',
+        'helm', 
+        'htop',
+        'jq',
+        'kind',
+        'kubectx',
+        'kubernetes-cli',
+        'kubernetes-helm',
+        'libtool',
+        'libxslt',
+        'libyaml',
+        'minikube',
+        'nmap',
+        'openssl' ,
+        'packer',
+        'pyenv',
+        'readline',
+        'terraform',
+        'tfswitch',
+        'tmux',
+        'tree',
+        'unzip',
+        'vim',
+        'wget',
+        'yarn',
+        'yq',
+        'zlib',
+        'zsh',
+      ]
+      state: present
+      update_homebrew: yes

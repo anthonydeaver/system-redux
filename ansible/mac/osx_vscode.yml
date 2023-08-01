@@ -1,0 +1,44 @@
+- name: Create a default VSCode configuration
+  template:
+    src: templates/vscode-settings.json.j2
+    dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/settings.json
+    owner: "{{ lookup('env', 'USER') }}"
+    force: yes
+
+- name: Create a default VSCode keybinding configuration
+  template:
+    src: vscode-keybindings.json.j2
+    dest: /Users/{{ lookup('env', 'USER') }}/Library/Application Support/Code/User/keybindings.json
+    owner: "{{ lookup('env', 'USER') }}"
+    force: yes
+
+# Add something which ensures path is set here
+- name: Install VSCode extensions
+  shell: code --install-extension {{ item }}
+  with_items:
+    - clinyong.vscode-css-modules
+    - eamodio.gitlens
+    - karunamurti.haml
+    - msjsdiag.debugger-for-chrome
+    - richie5um2.vscode-sort-json
+    - Tyriar.sort-lines
+    - vscodevim.vim
+    - wholroyd.jinja
+    - wingrunr21.vscode-ruby
+    - xabikos.javascriptsnippets
+    - streetsidesoftware.code-spell-checker
+    - fabiospampinato.vscode-todo-plus
+    - formulahendry.terminal
+    - hashicorp.terraform
+    - marcostazi.VS-code-vagrantfile
+    - ms-python.python
+    - ms-vscode-remote.remote-containers
+    - ms-azuretools.vscode-docker
+    - alefragnani.project-manager
+    - oouo-diogo-perdigao.docthis
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - ms-azuretools.vscode-docker
+    - redhat.vscode-yaml
+    - searking.preview-vscode
+    - mikestead.dotenv
+    - sdras.night-owl
